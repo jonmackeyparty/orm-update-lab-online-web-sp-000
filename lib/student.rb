@@ -54,13 +54,13 @@ class Student
     student=self.new(array[0], array[1], array[2])
   end
     
-  def self.find_by_name
+  def self.find_by_name(name)
     sql=<<-SQL 
     SELECT * FROM students 
     WHERE name = ?
     SQL
     
-    student=DB[:conn].execute(sql, self.name)
+    student=DB[:conn].execute(sql, name)
     
     
     
