@@ -64,6 +64,8 @@ class Student
     self.new(student[0], student[1], student[2])
   end
     
+  def update
+    
     
     
     
