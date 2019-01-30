@@ -16,7 +16,7 @@ class Student
         id INTEGER PRIMARY KEY,
         name TEXT,
         grade INTEGER
-        );
+        )
         SQL
       
     DB[:conn].execute(sql)
@@ -24,7 +24,7 @@ class Student
 
   def self.drop_table 
     sql=<<-SQL
-      DROP TABLE students;
+      DROP TABLE students
       SQL
       
     DB[:conn].execute(sql)
@@ -36,7 +36,7 @@ class Student
     else
     sql=<<-SQL 
       INSERT INTO students (name, grade)
-      VALUES (?, ?); 
+      VALUES (?, ?)
       SQL
     
     DB[:conn].execute(sql, self.name, self.grade)
@@ -54,10 +54,16 @@ class Student
     student=self.new(array[0], array[1], array[2])
   end
     
-  def self.find_by_name(name)
+  def self.find_by_name
     sql=<<-SQL 
     SELECT * FROM students 
-    WHERE name = ?;
+    WHERE name = ?
+    SQL
+    
+    student=DB[:conn].execute(sql, self.name)
+    
+    
+    
     
     
   
